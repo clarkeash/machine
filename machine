@@ -1,0 +1,43 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\Filesystem;
+use Machine\Application;
+use Machine\Console\Make\ClassCommand;
+use Machine\Console\Make\InterfaceCommand;
+use Machine\Console\Make\TraitCommand;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+
+try
+{
+    /*
+     * Setup the application
+     */
+    $app = new Application('1.0.0');
+    $app->container->bind(Filesystem::class, function() {
+        return new Filesystem(new Local(getcwd()));
+    });
+
+    /*
+     * Register Commands
+     */
+    $app->add($app->container->make(ClassCommand::class));
+    $app->add($app->container->make(InterfaceCommand::class));
+    $app->add($app->container->make(TraitCommand::class));
+
+    /*
+     * Run the application
+     */
+    $app->run();
+
+}
+catch(Exception $e)
+{
+    $output = new ConsoleOutput;
+    $output->writeln("<error>{$e->getMessage()}</error>");
+}
+

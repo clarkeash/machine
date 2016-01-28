@@ -1,0 +1,33 @@
+{
+    "name": "clarkeash/machine",
+    "description": "Machine helps you create php classes, interfaces and more.",
+    "type": "library",
+    "require": {
+        "symfony/console": "~2.7|~3.0",
+        "symfony/process": "~2.7|~3.0",
+        "mustache/mustache": "^2.9",
+        "league/flysystem": "^1.0",
+        "illuminate/support": "^5.2",
+        "illuminate/container": "^5.2",
+        "roave/better-reflection": "^0.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.1",
+        "mikey179/vfsStream": "^1.6",
+        "clarkeash/flysystem-vfs-stream": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ashley Clarke",
+            "email": "me@ashleyclarke.me"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Machine\\": "src/"
+        }
+    }
+}
