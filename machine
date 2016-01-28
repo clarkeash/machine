@@ -9,6 +9,7 @@ use Machine\Application;
 use Machine\Console\Make\ClassCommand;
 use Machine\Console\Make\InterfaceCommand;
 use Machine\Console\Make\TraitCommand;
+use Machine\Console\Make\TestCommand;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 
@@ -28,6 +29,7 @@ try
     $app->add($app->container->make(ClassCommand::class));
     $app->add($app->container->make(InterfaceCommand::class));
     $app->add($app->container->make(TraitCommand::class));
+    $app->add($app->container->make(TestCommand::class));
 
     /*
      * Run the application

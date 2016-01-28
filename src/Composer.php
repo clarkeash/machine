@@ -71,4 +71,14 @@ class Composer
 
         return $this->getRootPath() . DIRECTORY_SEPARATOR . Utils::switchToDirectorySlashes($name) . '.php';
     }
+
+    public function getTestPath($name)
+    {
+        $name = $this->getClassNamespace($name);
+        $name = Str::substr($name, strlen($this->getRootNamespace()) + 1);
+
+        $switchToDirectorySlashes = Utils::switchToDirectorySlashes($name);
+
+        return 'tests' . DIRECTORY_SEPARATOR . str_replace(DIRECTORY_SEPARATOR, "", $switchToDirectorySlashes) . 'Test.php';
+    }
 }

@@ -1,0 +1,24 @@
+<?php
+
+use {{ namespace}}\{{ className }};
+
+class {{ testName }} extends \PHPUnit_Framework_TestCase
+{
+    /**
+     * @var {{ className }}
+     */
+    protected $unit;
+
+    public function setUp()
+    {
+        $this->unit = new {{ className }}();
+    }
+
+    /**
+     * @test
+     */
+    public function it_works()
+    {
+        $this->assertTrue(true);
+    }
+}

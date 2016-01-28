@@ -25,7 +25,7 @@ abstract class BaseGenerator
     /**
      * @var \League\Flysystem\Filesystem
      */
-    private $external;
+    protected $external;
 
     /**
      * @var array
